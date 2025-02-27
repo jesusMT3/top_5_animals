@@ -17,14 +17,15 @@ def main():
 
     # import data
     data = import_data(url)
+    
 
     # filter dataframe
-    filters = {"genders": list(data.loc[:,"Gender"].unique()),
-               "countries": list(data.loc[:, "Country"].unique()),
-               "ages": list(data.loc[:, "Age"].unique())}
+    filters = {"Gender": list(data.loc[:,"Gender"].unique()),
+               "Country": list(data.loc[:, "Country"].unique()),
+               "Age": list(data.loc[:, "Age"].unique())}
 
     # make dataframe
-    ranking = make_ranking(data, custom_filter = ("Gender" , filters["genders"][1]))
+    ranking = make_ranking(data, custom_filter = None)
     gender_distribution = get_distribution(data, "Gender")
     country_distribution = get_distribution(data, "Country")
     age_distribution = get_distribution(data, "Age")
